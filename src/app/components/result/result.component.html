@@ -1,0 +1,6 @@
+<div *ngIf="(canReserve | async) === true">
+    <h2>C'est disponible !</h2>
+</div>
+<div *ngIf="(canReserve | async) === false">
+    <h2>C'est pas disponible ...</h2>
+</div>

@@ -1,0 +1,33 @@
+<form [formGroup]="myForm">
+    <mat-form-field class="input">
+        <mat-label>Numéro de la salle</mat-label>
+        <input matInput placeholder="Ex. 1337" formControlName="roomNumber">
+    </mat-form-field>
+
+    <mat-form-field class="input">
+        <mat-label>Date</mat-label>
+        <input matInput [matDatepicker]="dp3" disabled (dateChange)="dateChange($event)">
+        <mat-datepicker-toggle matSuffix [for]="dp3"></mat-datepicker-toggle>
+        <mat-datepicker #dp3 disabled="false"></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field class="input">
+        <mat-label>Heure</mat-label>
+        <mat-select>
+            <mat-option *ngFor="let hour of hours" [value]="hour.value">
+                {{hour.value}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="input">
+        <mat-label>Minutes</mat-label>
+        <mat-select>
+            <mat-option *ngFor="let minute of minutes" [value]="minute.value">
+                {{minute.value}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" (click)="checkCanReserve()">Vérifier</button>
+</form>
